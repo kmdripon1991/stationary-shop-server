@@ -55,26 +55,15 @@ const loginUser = async (payload: TLoginUser) => {
 };
 
 const refreshToken = async (token: string) => {
-  // console.log('token', token);
-  //check the given token is verified
-  // const decoded = jwt.verify(
-  //   token,
-  //   config.jwt_refresh_secret as string,
-  // ) as JwtPayload;
   const decoded = verifyToken(token, config.jwt_refresh_secret as string);
+
   const { userEmail } = decoded;
-  //check if user is exist
-  // const user = await User.isUserExistByCustomId(userId);
   const user = await RegisterUser.isUserExistsByEmail(userEmail);
+
   if (!user) {
     throw new AppError(StatusCodes.NOT_FOUND, '🔍❓ User not Found');
   }
-  //check if user is deleted
-  // const isDeleted = user?.isDeleted;
-  // if (isDeleted) {
-  //   throw new AppError(StatusCodes.FORBIDDEN, '🗑️ User is Deleted');
-  // }
-  // //check if user is blocked
+
   const userStatus = user?.isBlocked;
   if (userStatus === true) {
     throw new AppError(StatusCodes.FORBIDDEN, '🚫 User is Blocked');

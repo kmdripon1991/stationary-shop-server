@@ -7,7 +7,6 @@ import httpStatusCodes from 'http-status-codes';
 const createOrder = catchAsync(
   async (req: Request, res: Response): Promise<void> => {
     const orderData = req.body;
-    console.log(orderData);
     const { userEmail } = req.user;
     const result = await OrderServices.createOrderIntoDB(
       userEmail,
@@ -48,7 +47,7 @@ const verifyPayment = catchAsync(async (req, res) => {
 });
 
 const updateOrder = catchAsync(async (req, res) => {
-  const orderId = req.params.OrderId;
+  const { orderId } = req.params;
   const result = await OrderServices.updateOrderIntoDB(orderId, req.body);
   sendResponse(res, {
     success: true,

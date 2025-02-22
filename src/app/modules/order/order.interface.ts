@@ -1,11 +1,11 @@
 import { Types } from 'mongoose';
 
 export type TOrderStatus =
-  | 'pending'
-  | 'processing'
-  | 'shipped'
-  | 'delivered'
-  | 'cancelled';
+  | 'Pending'
+  | 'Processing'
+  | 'Shipped'
+  | 'Delivered'
+  | 'Cancelled';
 
 export type TOrderItem = {
   productId: Types.ObjectId;

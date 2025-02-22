@@ -123,19 +123,28 @@ const createOrderIntoDB = async (
   } catch (err: any) {
     // Rollback the transaction in case of any error
     await session.abortTransaction();
-    session.endSession();
+    // session.endSession();
     throw new Error(err);
+  } finally {
+    session.endSession();
   }
 };
 
 const getAllOrdersFromDB = async (userEmail: string) => {
-  console.log(userEmail);
   const user = await RegisterUser.findOne({ email: userEmail });
   if (!user) {
     throw new AppError(httpStatusCodes.NOT_FOUND, 'User not found');
   }
-  const orders = await OrderModel.find({ user: user._id });
-  console.log(orders);
+
+  let orders;
+  if (user.role === 'admin') {
+    orders = await OrderModel.find().populate('user');
+    // orders = await OrderModel.find();
+  } else {
+    orders = await OrderModel.find({ user: user._id }).populate('user');
+    // orders = await OrderModel.find({ user: user._id });
+  }
+
   return orders;
 };
 
@@ -171,13 +180,12 @@ const verifyPayment = async (order_id: string) => {
 
 const updateOrderIntoDB = async (orderId: string, payload: TOrder) => {
   //payload will be changed to order status
-  console.log(payload);
   const order = await OrderModel.findById(orderId);
   if (!order) {
     throw new AppError(httpStatusCodes.NOT_FOUND, 'Order not found');
   }
   if (order.transaction.bank_status === 'Success') {
-    order.status = ['delivered'];
+    order.status = payload.status;
   }
 
   await order.save();

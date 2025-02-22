@@ -48,9 +48,13 @@ const productSchema = new Schema<TProduct>(
       required: [true, 'Quantity is required.'],
       min: [0, 'Quantity cannot be negative.'],
     },
+    image: {
+      type: String,
+      required: [true, 'Product Image is required'],
+    },
     inStock: {
       type: Boolean,
-      required: [true, 'InStock field is required.'],
+      default: true,
     },
   },
   {

@@ -6,10 +6,17 @@ import { USER_ROLE } from '../user/user.constant';
 const router = express.Router();
 
 router.get('/', ProductControllers.getAllProducts);
+
 router.get('/:productId', ProductControllers.singleProduct);
+
 router.post(
   '/create-product',
   Auth(USER_ROLE.admin),
+  // (req: Request, res: Response, next: NextFunction) => {
+  //   console.log(req.body);
+  //   req.body = JSON.parse(req.body.data);
+  //   next();
+  // },
   ProductControllers.createProduct,
 );
 router.put(

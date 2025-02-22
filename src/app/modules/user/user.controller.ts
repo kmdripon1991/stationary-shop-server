@@ -3,6 +3,7 @@ import catchAsync from '../../utils/catchAsync';
 import { StatusCodes } from 'http-status-codes';
 import { RegisterUserServices } from './user.service';
 import sendResponse from '../../utils/sendResponse';
+import config from '../../config';
 
 const registerUser = catchAsync(async (req: Request, res: Response) => {
   const result = await RegisterUserServices.createRegisterUserIntoDB(req.body);
@@ -18,11 +19,20 @@ const registerUser = catchAsync(async (req: Request, res: Response) => {
 const loginUser = catchAsync(async (req: Request, res: Response) => {
   const result = await RegisterUserServices.loginUser(req.body);
 
+  const { refreshToken, accessToken } = result;
+
+  res.cookie('refreshToken', refreshToken, {
+    secure: config.NODE_ENV === 'production' ? true : false,
+    httpOnly: true,
+    sameSite: true,
+    maxAge: 1000 * 60 * 60 * 24 * 365,
+  });
+
   sendResponse(res, {
     success: true,
     message: 'Login successful',
     statusCode: StatusCodes.OK,
-    data: { token: result },
+    data: { token: accessToken },
   });
 });
 

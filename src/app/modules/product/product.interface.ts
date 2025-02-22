@@ -13,5 +13,6 @@ export type TProduct = {
   category: TProductCategory;
   description: string;
   quantity: number;
+  image: string;
   inStock: boolean;
 };

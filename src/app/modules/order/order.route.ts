@@ -11,28 +11,25 @@ router.post(
 );
 router.get(
   '/all-orders',
-  // Auth(USER_ROLE.admin),
-  Auth(USER_ROLE.user),
+  Auth(USER_ROLE.admin, USER_ROLE.user),
   OrderControllers.allOrders,
 );
 
 router.get(
   '/verify',
-  // Auth(USER_ROLE.admin),
-  Auth(USER_ROLE.user),
+  Auth(USER_ROLE.admin, USER_ROLE.user),
   OrderControllers.verifyPayment,
 );
 
 router.put(
   '/update-order/:orderId',
-  Auth(USER_ROLE.user),
+  Auth(USER_ROLE.admin, USER_ROLE.user),
   OrderControllers.updateOrder,
 );
 
 router.delete(
   '/delete-order/:orderId',
-  // Auth(USER_ROLE.admin),
-  Auth(USER_ROLE.user),
+  Auth(USER_ROLE.admin, USER_ROLE.user),
   OrderControllers.deleteOrder,
 );
 

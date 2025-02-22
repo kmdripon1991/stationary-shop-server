@@ -2,7 +2,6 @@
 
 [Blog Server Link](https://blog-server-three-sand.vercel.app) - https://blog-server-three-sand.vercel.app
 
-
 ## Overview
 
 This project is a backend system for a blogging platform with two user roles: **Admin** and **User**. The system enables users to perform CRUD operations on blogs and provides admins with special permissions for managing users and their blogs. The platform features secure authentication, role-based access control, and a public API for searching, sorting, and filtering blogs.
@@ -84,15 +83,14 @@ This is an custom middleware. It used for Authentication and Authorizations.Veri
 
 In Express Js global error handler is a middleware function. When a application throw an error , global error middleware function intercepts the error, process them and send a response to the client with appropriate response.Centralized the errors and make code cleaner.
 
-  - **Zod Error**
-  - **Validation Error**
-  - **CastError**
-  - **Duplicate Key Error**
-  - **AppError**
-  - **Generic Error**
-  
-  Finally, Sending error response, Export this middleware and Integrate this middleware in the `app.ts` file.
+- **Zod Error**
+- **Validation Error**
+- **CastError**
+- **Duplicate Key Error**
+- **AppError**
+- **Generic Error**
 
+Finally, Sending error response, Export this middleware and Integrate this middleware in the `app.ts` file.
 
 ### Not Found Error middleware
 
@@ -105,12 +103,11 @@ The ValidateRequest middleware validates the incoming request against a provided
 
 ### `QueryBuilder` Class
 
-This is a generic utility class for `mongodb` queries with `mongoose`.It simplifies the process of searching, filtering, sorting data based on query object.Constructor accepts mongoose `modelQuery` and a query object.Check if a `search` parameter exists in the query.And  logic for partial match and case-insensitive
+This is a generic utility class for `mongodb` queries with `mongoose`.It simplifies the process of searching, filtering, sorting data based on query object.Constructor accepts mongoose `modelQuery` and a query object.Check if a `search` parameter exists in the query.And logic for partial match and case-insensitive
 
 Filters the query by specific criteria, excluding non-filter-related fields (like `search`, `sortBy`, `sortOrder`)
 
 Sorts the query results by a specified field and order.Use `sortBy`to determine field to sort which default value is set createdAt.Also use `sortOrder` to determine the order. ascending (default) or descending
-
 
 ### User Model
 
@@ -136,4 +133,3 @@ Sorts the query results by a specified field and order.Use `sortBy`to determine 
 | `updatedAt`   | `Date`     | Timestamp of the last update.                             |
 
 ---
-
