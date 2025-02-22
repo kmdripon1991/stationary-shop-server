@@ -17,7 +17,7 @@ app.use(
   }),
 );
 
-app.use('/api/v1', router);
+app.use('/', router);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');
