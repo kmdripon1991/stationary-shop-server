@@ -1,10 +1,10 @@
-# Blog Project
+# Stationary Shop Project
 
-[Blog Server Link](https://blog-server-three-sand.vercel.app) - https://blog-server-three-sand.vercel.app
+[Server Link](https://satationary-server.vercel.app) - https://satationary-server.vercel.app
 
 ## Overview
 
-This project is a backend system for a blogging platform with two user roles: **Admin** and **User**. The system enables users to perform CRUD operations on blogs and provides admins with special permissions for managing users and their blogs. The platform features secure authentication, role-based access control, and a public API for searching, sorting, and filtering blogs.
+This project is a backend system for a blogging platform with two user roles: **Admin** and **User**. The system enables users to perform CRUD operations on Stationary Shop and provides admins with special permissions for managing users and admin. The platform features secure authentication, role-based access control, and a public API for searching, sorting, and filtering stationary shop.
 
 This guide provides the steps to set up a Node.js project with TypeScript, MongoDB, ESLint, Prettier, and VSCode configurations for efficient development.
 
@@ -21,41 +21,41 @@ This guide provides the steps to set up a Node.js project with TypeScript, Mongo
 
 ## User
 
-In the user module, interface, model, route, controller and service files have been created. The user routes have been declared in the user route. The controller has been called from the router file. Again, the controller file calls the service file. The user registration and login work has been completed in the service file. The `zod validation` is used for user model data validation
-
-[Register User API](https://blog-server-three-sand.vercel.app/api/auth/register) - https://blog-server-three-sand.vercel.app/api/auth/register
-
-[Login User API](https://blog-server-three-sand.vercel.app/api/auth/login) - https://blog-server-three-sand.vercel.app/api/auth/login
+In the user module, interface, model, route, controller and service files have been created. The user routes have been declared in the user route. The controller has been called from the router file. Again, the controller file calls the service file. The user registration and login work has been completed in the service file.
 
 ---
 
-## Blog
+## 
 
-In the blog module, interface, model, route, controller, service, constant files have been created. The blog routes have been declared in the blog route. The controller has been called from the router file. Again, the controller file calls the service file. The user registration and login work has been completed in the service file. The `zod validation` is used for user model data validation
+In the Product module, interface, model, route, controller, service, constant files have been created. The product routes have been declared in the product route. The controller has been called from the router file. Again, the controller file calls the service file. The user registration and login work has been completed in the service file.
 
-[Create Blog API](https://blog-server-three-sand.vercel.app/api/blogs/) - https://blog-server-three-sand.vercel.app/api/blogs/
+[Create Product API](https://satationary-server.vercel.app/products/create-product) - https://satationary-server.vercel.app/products/create-product
 
-[Update Blog API](https://blog-server-three-sand.vercel.app/api/blogs/id) - https://blog-server-three-sand.vercel.app/api/blogs/id
+[All Product API](https://satationary-server.vercel.app/products) - https://satationary-server.vercel.app/products
 
-[Delete Blog API](https://blog-server-three-sand.vercel.app/api/blogs/id) - https://blog-server-three-sand.vercel.app/api/blogs/id
+[Single Product API](https://satationary-server.vercel.app/products/id) - https://satationary-server.vercel.app/products/id
 
-[Get All Blogs API](https://blog-server-three-sand.vercel.app/api/blogs/) - https://blog-server-three-sand.vercel.app/api/blogs/
+[Update Product API](https://satationary-server.vercel.app/products/id) - https://satationary-server.vercel.app/products/id
 
-[For Query API](https://blog-server-three-sand.vercel.app/api/blogs?search=technology&sortOrder=desc&sortBy=createdAt&filter=authorId) - https://blog-server-three-sand.vercel.app/api/blogs?search=technology&sortOrder=desc&sortBy=createdAt&filter=authorId
+[Delete Product API](https://satationary-server.vercel.app/products/id) - https://satationary-server.vercel.app/products/id
+
+[For Query API](https://satationary-server.vercel.app/products?name=Scientific&search=Writing) - https://satationary-server.vercel.app/products?name=Scientific&search=Writing
 
 ---
 
-## Admin Action
+## 
 
-In the admin module, admin route, controller and service file have been created. Admin action tasks have been completed from the service file.
+In the Order module, interface, model, route, controller, service, constant files have been created. The product routes have been declared in the product route. The controller has been called from the router file. Again, the controller file calls the service file. The user registration and login work has been completed in the service file.
 
-Only an Admin can block a user by updating the user field `isBlocked` property `true`.
+[Create Order API](https://satationary-server.vercel.app/orders/create-order) - https://satationary-server.vercel.app/orders/create-order
 
-[User Block by Admin](https://blog-server-three-sand.vercel.app/api/admin/users/userId/block) - https://blog-server-three-sand.vercel.app/api/admin/users/userId/block
+[All Orders API](https://satationary-server.vercel.app/orders/all-orders) - https://satationary-server.vercel.app/orders/all-orders
 
-Only an Admin can delete any user blog.
+[Update Order API](https://satationary-server.vercel.app/orders/update-order/id) - https://satationary-server.vercel.app/orders/update-order/id
 
-[Any Blogs can be deleted Admin](http://localhost:5000/api/admin/blogs/blogId) - http://localhost:5000/api/admin/blogs/blogId
+[Delete Product API](https://satationary-server.vercel.app/orders/update-order/id) - https://satationary-server.vercel.app/orders/update-order/id
+
+[Verify Orders](https://satationary-server.vercel.app/orders/verify) - https://satationary-server.vercel.app/orders/verify
 
 ---
 
