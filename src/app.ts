@@ -14,7 +14,7 @@ app.use(
   cors({
     origin: [
       // 'http://localhost:5173',
-      'https://stationary-shop-client-omega.vercel.app',
+      'https://stationary-client-psi.vercel.app/',
     ],
     credentials: true,
   }),
