@@ -121,15 +121,20 @@ Sorts the query results by a specified field and order.Use `sortBy`to determine 
 | `createdAt` | `Date`    | Timestamp when the user was created.                        |
 | `updatedAt` | `Date`    | Timestamp of the last update.                               |
 
-### Blog Model
+### Product Model
 
 | Field         | Type       | Description                                               |
 | ------------- | ---------- | --------------------------------------------------------- |
-| `title`       | `string`   | Title of the blog post.                                   |
-| `content`     | `string`   | Main body/content of the blog post.                       |
-| `author`      | `ObjectId` | Reference to the User model.                              |
-| `isPublished` | `boolean`  | Indicates whether the blog is published. Default: `true`. |
-| `createdAt`   | `Date`     | Timestamp when the blog was created.                      |
+| `name`       | `string`   | Name of the Product.                                   |
+| `brand`     | `string`   | Product Brand.                       |
+| `price`      | `number` | Product Price.                              |
+| `model` | `string`  | Product model. |
+| `category` | `string`  | Product category. |
+| `description` | `string`  | Product description. |
+| `quantity` | `number`  | Product description. |
+| `image` | `string`  | Product image. |
+| `inStock` | `boolean`  | Product stock. |
+| `createdAt`   | `Date`     | Timestamp when the product was created.                      |
 | `updatedAt`   | `Date`     | Timestamp of the last update.                             |
 
 ---
